@@ -1,0 +1,1815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@vibewithanu05 | Lifestyle Content Creator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #ff8c42;
+            --secondary: #ffd93d;
+            --accent: #ff6b35;
+            --tertiary: #ffab00;
+            --warm-pink: #d4526e;
+            --dark: #2d3436;
+            --light: #fff8f0;
+            --gradient-bg: linear-gradient(135deg, #ff8c42 0%, #ffd93d 100%);
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, 
+                rgba(255, 140, 66, 0.15) 0%, 
+                rgba(255, 217, 61, 0.15) 25%,
+                rgba(255, 107, 53, 0.15) 50%,
+                rgba(255, 171, 0, 0.15) 75%,
+                rgba(212, 82, 110, 0.15) 100%);
+            background-attachment: fixed;
+            color: var(--dark);
+            overflow-x: hidden;
+            transition: all 0.3s ease;
+            min-height: 100vh;
+        }
+        
+        .profile-img {
+            border: 4px solid var(--primary);
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.3);
+            animation: borderGlow 4s infinite alternate;
+        }
+        
+        @keyframes borderGlow {
+            0% { border-color: var(--primary); }
+            50% { border-color: var(--secondary); }
+            100% { border-color: var(--accent); }
+        }
+        
+        .social-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .social-card:hover {
+            transform: translateY(-8px) rotateX(8deg) rotateY(8deg) scale(1.05);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+            filter: brightness(1.1) saturate(1.2);
+        }
+        
+        .social-card:hover::before {
+            left: 100%;
+        }
+        
+        .social-card:hover .fas.fa-chevron-right {
+            transform: translateX(8px) rotate(90deg);
+            color: #ffd93d;
+        }
+        
+        .social-card:hover .fab,
+        .social-card:hover .fas:not(.fa-chevron-right),
+        .social-card:hover img {
+            transform: scale(1.2) rotate(360deg);
+        }
+        
+        .social-card:hover h3 {
+            transform: translateX(5px);
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .social-card:hover .w-12.h-12 {
+            transform: scale(1.1) rotate(-5deg);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        
+        .social-card .fab,
+        .social-card .fas,
+        .social-card img,
+        .social-card h3,
+        .social-card .w-12.h-12 {
+            transition: all 0.3s ease;
+        }
+        
+        .instagram-bg {
+            background: linear-gradient(135deg, #405de6, #833ab4, #c13584, #e1306c);
+            box-shadow: 0 8px 32px rgba(64, 93, 230, 0.3);
+        }
+        
+        .youtube-bg {
+            background: linear-gradient(135deg, #FF0000, #FF4444, #FF6666);
+            box-shadow: 0 8px 32px rgba(255, 0, 0, 0.3);
+        }
+        
+        .tiktok-bg {
+            background: linear-gradient(135deg, #000000, #25F4EE, #FE2C55);
+            box-shadow: 0 8px 32px rgba(37, 244, 238, 0.3);
+        }
+        
+        .threads-bg {
+            background: linear-gradient(135deg, #000000, #333333, #555555);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+        
+        .facebook-bg {
+            background: linear-gradient(135deg, #1877f2, #42a5f5, #64b5f6);
+            box-shadow: 0 8px 32px rgba(24, 119, 242, 0.3);
+        }
+        
+        .etsy-bg {
+            background: linear-gradient(135deg, #f56040, #ff8a65, #ffab91);
+            box-shadow: 0 8px 32px rgba(245, 96, 64, 0.3);
+        }
+        
+        .linktree-bg {
+            background: linear-gradient(135deg, #39e09b, #66bb6a, #81c784);
+            box-shadow: 0 8px 32px rgba(57, 224, 155, 0.3);
+        }
+        
+        .socialcat-bg {
+            background: linear-gradient(135deg, #8e24aa, #ab47bc, #ba68c8);
+            box-shadow: 0 8px 32px rgba(142, 36, 170, 0.3);
+        }
+        
+        .typing-text {
+            border-right: 2px solid var(--primary);
+            animation: blink 0.75s step-end infinite;
+        }
+        
+        @keyframes blink {
+            from, to { border-color: transparent }
+            50% { border-color: var(--primary); }
+        }
+        
+        .counter {
+            font-variant-numeric: tabular-nums;
+        }
+        
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .ripple {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ripple:after {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+            background-repeat: no-repeat;
+            background-position: 50%;
+            transform: scale(10, 10);
+            opacity: 0;
+            transition: transform .5s, opacity 1s;
+        }
+        
+        .ripple:active:after {
+            transform: scale(0, 0);
+            opacity: 0.3;
+            transition: 0s;
+        }
+        
+        .blob {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.15;
+            z-index: -1;
+            animation: blobMove 20s infinite alternate;
+        }
+        
+        .blob:nth-child(1) {
+            background: var(--primary);
+            top: 10%;
+            left: 10%;
+        }
+        
+        .blob:nth-child(2) {
+            background: var(--secondary);
+            top: 60%;
+            right: 10%;
+            animation-delay: 5s;
+        }
+        
+        .blob:nth-child(3) {
+            background: var(--accent);
+            bottom: 10%;
+            left: 40%;
+            animation-delay: 10s;
+        }
+        
+        @keyframes blobMove {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(50px, -50px) scale(1.1); }
+            66% { transform: translate(-50px, 50px) scale(0.9); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+        
+
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in forwards;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+        .delay-5 { animation-delay: 1s; }
+        
+        .gallery-item {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+        }
+        
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, 
+                rgba(255, 140, 66, 0.1) 0%,
+                rgba(255, 217, 61, 0.1) 50%,
+                rgba(255, 107, 53, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-12px) rotateX(8deg) scale(1.05);
+            z-index: 10;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+        
+        .gallery-item:hover::before {
+            opacity: 1;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1) rotate(2deg);
+            filter: brightness(1.1) saturate(1.3);
+        }
+        
+        .gallery-item img {
+            transition: all 0.4s ease;
+        }
+        
+        .gallery-item:nth-child(1) {
+            transform: rotate(-1deg);
+        }
+        
+        .gallery-item:nth-child(2) {
+            transform: rotate(1deg);
+        }
+        
+        .gallery-item:nth-child(3) {
+            transform: rotate(-0.5deg);
+        }
+        
+        .gallery-item:nth-child(4) {
+            transform: rotate(0.8deg);
+        }
+        
+        .gallery-item:nth-child(5) {
+            transform: rotate(-0.3deg);
+        }
+        
+        .gallery-item:nth-child(6) {
+            transform: rotate(0.6deg);
+        }
+        
+        .gallery-floating-icon {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: var(--primary);
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+        
+        .gallery-item:hover .gallery-floating-icon {
+            opacity: 1;
+            transform: translateY(0) rotate(360deg);
+        }
+        
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            margin: 2rem 5rem 3rem 5rem;
+            padding: 2rem 3rem;
+            perspective: 1000px;
+        }
+        
+        @keyframes containerPulse {
+            0%, 100% { box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.2); }
+            50% { box-shadow: 0 35px 70px rgba(255, 140, 66, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3); }
+        }
+        
+        .carousel-track {
+            display: flex;
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            will-change: transform;
+            transform-style: preserve-3d;
+        }
+        
+        .carousel-slide {
+            min-width: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 600px;
+            padding: 1rem;
+            transform-style: preserve-3d;
+            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .carousel-slide.active {
+            transform: translateZ(50px) scale(1.05);
+        }
+        
+        .carousel-slide.prev {
+            transform: translateZ(-50px) rotateY(-15deg) scale(0.9);
+            opacity: 0.7;
+        }
+        
+        .carousel-slide.next {
+            transform: translateZ(-50px) rotateY(15deg) scale(0.9);
+            opacity: 0.7;
+        }
+        
+        @media (min-width: 768px) {
+            .carousel-slide {
+                min-width: 100%;
+                height: 650px;
+                padding: 1.5rem 1rem;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .carousel-slide {
+                min-width: 100%;
+                height: 700px;
+                padding: 2rem 1rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .carousel-container {
+                margin: 2rem 1rem 3rem 1rem;
+                padding: 0.5rem 1rem;
+            }
+            
+            .carousel-nav.prev {
+                left: 10px;
+            }
+            
+            .carousel-nav.next {
+                right: 10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .carousel-container {
+                margin: 1.5rem 0.5rem 2.5rem 0.5rem;
+                padding: 0.5rem;
+            }
+            
+            .carousel-nav.prev {
+                left: 5px;
+            }
+            
+            .carousel-nav.next {
+                right: 5px;
+            }
+            
+            .carousel-nav {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .carousel-nav i {
+                font-size: 16px;
+            }
+        }
+        
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, rgba(255, 140, 66, 0.9), rgba(255, 171, 0, 0.9));
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 10;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 10px 30px rgba(255, 140, 66, 0.3);
+            animation: navFloat 3s ease-in-out infinite;
+        }
+        
+        @keyframes navFloat {
+            0%, 100% { transform: translateY(-50%) translateX(0); }
+            50% { transform: translateY(-50%) translateX(5px); }
+        }
+        
+        .carousel-nav:hover {
+            background: linear-gradient(135deg, rgba(255, 140, 66, 1), rgba(255, 171, 0, 1));
+            transform: translateY(-50%) scale(1.15) rotate(10deg);
+            box-shadow: 0 15px 40px rgba(255, 140, 66, 0.5);
+            animation: none;
+        }
+        
+        .carousel-nav:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+        
+        .carousel-nav.prev {
+            left: 20px;
+            animation-delay: 0.5s;
+        }
+        
+        .carousel-nav.next {
+            right: 20px;
+            animation-delay: 1s;
+        }
+        
+        .carousel-nav i {
+            color: white;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+        
+        .carousel-nav:hover i {
+            transform: scale(1.2);
+        }
+        
+
+        
+        .theme-toggle {
+            width: 60px;
+            height: 30px;
+            border-radius: 15px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .theme-toggle-ball {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            top: 3px;
+            left: 3px;
+            transition: all 0.3s ease;
+        }
+        
+        .theme-toggle.active .theme-toggle-ball {
+            transform: translateX(30px);
+        }
+        
+        .parallax {
+            transition: transform 0.1s ease-out;
+        }
+        
+        /* Enhanced Background Animations */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+        
+        .gradient-wave {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, 
+                rgba(255, 140, 66, 0.2) 0%,
+                rgba(255, 217, 61, 0.2) 25%,
+                rgba(255, 107, 53, 0.2) 50%,
+                rgba(255, 171, 0, 0.2) 75%,
+                rgba(212, 82, 110, 0.2) 100%);
+            animation: waveMove 20s linear infinite;
+        }
+        
+        @keyframes waveMove {
+            0% { transform: translateX(-50%) translateY(-50%) rotate(0deg); }
+            100% { transform: translateX(-50%) translateY(-50%) rotate(360deg); }
+        }
+        
+        .floating-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .particle {
+            position: absolute;
+            background: var(--primary);
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: floatUp 15s linear infinite;
+        }
+        
+        .particle:nth-child(1) {
+            left: 10%;
+            width: 4px;
+            height: 4px;
+            background: var(--primary);
+            animation-delay: 0s;
+        }
+        
+        .particle:nth-child(2) {
+            left: 20%;
+            width: 6px;
+            height: 6px;
+            background: var(--secondary);
+            animation-delay: 2s;
+        }
+        
+        .particle:nth-child(3) {
+            left: 30%;
+            width: 3px;
+            height: 3px;
+            background: var(--accent);
+            animation-delay: 4s;
+        }
+        
+        .particle:nth-child(4) {
+            left: 40%;
+            width: 5px;
+            height: 5px;
+            background: var(--primary);
+            animation-delay: 6s;
+        }
+        
+        .particle:nth-child(5) {
+            left: 50%;
+            width: 4px;
+            height: 4px;
+            background: var(--secondary);
+            animation-delay: 8s;
+        }
+        
+        .particle:nth-child(6) {
+            left: 60%;
+            width: 7px;
+            height: 7px;
+            background: var(--accent);
+            animation-delay: 10s;
+        }
+        
+        .particle:nth-child(7) {
+            left: 70%;
+            width: 3px;
+            height: 3px;
+            background: var(--primary);
+            animation-delay: 12s;
+        }
+        
+        .particle:nth-child(8) {
+            left: 80%;
+            width: 5px;
+            height: 5px;
+            background: var(--secondary);
+            animation-delay: 14s;
+        }
+        
+        .particle:nth-child(9) {
+            left: 90%;
+            width: 4px;
+            height: 4px;
+            background: var(--accent);
+            animation-delay: 16s;
+        }
+        
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+                transform: scale(1);
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100vh) scale(0);
+                opacity: 0;
+            }
+        }
+        
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+            transform-origin: left;
+            z-index: 1000;
+            animation: scrollGlow 3s ease-in-out infinite;
+        }
+        
+        @keyframes scrollGlow {
+            0%, 100% { box-shadow: 0 0 5px rgba(138, 43, 226, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(138, 43, 226, 0.8); }
+        }
+        
+        .geometric-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .shape {
+            position: absolute;
+            opacity: 0.2;
+            animation: shapeFloat 25s linear infinite;
+        }
+        
+        .shape:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 10px;
+            animation-delay: 0s;
+        }
+        
+        .shape:nth-child(2) {
+            top: 60%;
+            right: 15%;
+            width: 30px;
+            height: 30px;
+            background: var(--secondary);
+            border-radius: 50%;
+            animation-delay: 8s;
+        }
+        
+        .shape:nth-child(3) {
+            bottom: 30%;
+            left: 20%;
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            transform: rotate(45deg);
+            animation-delay: 16s;
+        }
+        
+        .shape:nth-child(4) {
+            top: 40%;
+            right: 30%;
+            width: 25px;
+            height: 60px;
+            background: var(--tertiary);
+            border-radius: 15px;
+            animation-delay: 4s;
+        }
+        
+        .shape:nth-child(5) {
+            bottom: 50%;
+            left: 60%;
+            width: 35px;
+            height: 35px;
+            background: var(--warm-pink);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            animation-delay: 12s;
+        }
+        
+        .shape:nth-child(6) {
+            top: 70%;
+            left: 5%;
+            width: 45px;
+            height: 20px;
+            background: var(--secondary);
+            border-radius: 50px;
+            animation-delay: 20s;
+        }
+        
+        .shape:nth-child(7) {
+            bottom: 15%;
+            right: 25%;
+            width: 28px;
+            height: 28px;
+            background: var(--primary);
+            border-radius: 50% 0;
+            animation-delay: 6s;
+        }
+        
+        .shape:nth-child(8) {
+            top: 10%;
+            left: 70%;
+            width: 32px;
+            height: 32px;
+            background: var(--accent);
+            border-radius: 8px;
+            transform: rotate(30deg);
+            animation-delay: 10s;
+        }
+        
+        .shape:nth-child(9) {
+            bottom: 40%;
+            right: 10%;
+            width: 38px;
+            height: 15px;
+            background: var(--tertiary);
+            border-radius: 20px;
+            animation-delay: 14s;
+        }
+        
+        .shape:nth-child(10) {
+            top: 80%;
+            left: 40%;
+            width: 26px;
+            height: 26px;
+            background: var(--warm-pink);
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            animation-delay: 18s;
+        }
+        
+        .shape:nth-child(11) {
+            top: 30%;
+            right: 5%;
+            width: 42px;
+            height: 42px;
+            background: var(--secondary);
+            border-radius: 50% 20%;
+            animation-delay: 22s;
+        }
+        
+        .shape:nth-child(12) {
+            bottom: 60%;
+            left: 15%;
+            width: 20px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 10px 10px 0 0;
+            animation-delay: 2s;
+        }
+        
+        .shape:nth-child(13) {
+            top: 15%;
+            right: 25%;
+            width: 35px;
+            height: 35px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation-delay: 5s;
+        }
+        
+        .shape:nth-child(14) {
+            bottom: 25%;
+            right: 8%;
+            width: 25px;
+            height: 40px;
+            background: var(--secondary);
+            border-radius: 20px 5px;
+            animation-delay: 12s;
+        }
+        
+        .shape:nth-child(15) {
+            top: 45%;
+            left: 8%;
+            width: 28px;
+            height: 28px;
+            background: var(--primary);
+            border-radius: 0 50% 0 50%;
+            animation-delay: 18s;
+        }
+        
+        .shape:nth-child(16) {
+            top: 75%;
+            right: 35%;
+            width: 22px;
+            height: 55px;
+            background: var(--accent);
+            border-radius: 50px;
+            animation-delay: 8s;
+        }
+        
+        .shape:nth-child(17) {
+            bottom: 15%;
+            left: 25%;
+            width: 45px;
+            height: 18px;
+            background: var(--secondary);
+            border-radius: 25px;
+            animation-delay: 15s;
+        }
+        
+        .shape:nth-child(18) {
+            top: 30%;
+            right: 12%;
+            width: 32px;
+            height: 32px;
+            background: var(--primary);
+            border-radius: 8px;
+            animation-delay: 25s;
+        }
+        
+        .shape:nth-child(19) {
+            bottom: 45%;
+            left: 35%;
+            width: 15px;
+            height: 38px;
+            background: var(--accent);
+            border-radius: 50% 50% 0 0;
+            animation-delay: 10s;
+        }
+        
+        .shape:nth-child(20) {
+            top: 65%;
+            left: 45%;
+            width: 40px;
+            height: 25px;
+            background: var(--secondary);
+            border-radius: 15px 50%;
+            animation-delay: 20s;
+        }
+        
+        @keyframes shapeFloat {
+            0% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-20px) rotate(90deg); }
+            50% { transform: translateY(0) rotate(180deg); }
+            75% { transform: translateY(-15px) rotate(270deg); }
+            100% { transform: translateY(0) rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="relative">
+    
+    <!-- Enhanced Animated Background -->
+    <div class="animated-bg">
+        <div class="gradient-wave"></div>
+        <div class="floating-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        <div class="geometric-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+    </div>
+    
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-indicator" id="scrollProgress"></div>
+
+    <!-- Animated Background Blobs -->
+    <div class="blob"></div>
+    <div class="blob"></div>
+    <div class="blob"></div>
+    
+    
+    <!-- Main Container -->
+    <div class="min-h-screen flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div class="w-full max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-4xl">
+            <!-- Profile Section -->
+            <div class="flex flex-col items-center mb-8 fade-in">
+                <img src="images/profile.jpg?v=1" 
+                     alt="Anushree Kane" 
+                     class="profile-img w-32 h-32 md:w-40 md:h-40 rounded-full object-cover mb-4 floating" 
+                     onload="console.log('Profile image loaded successfully from:', this.src)" 
+                     onerror="console.log('Profile image failed to load from:', this.src, 'using fallback'); this.src='https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80';">
+                
+                <h1 class="text-3xl md:text-4xl font-bold text-center mb-2 typing-text" id="typingText"></h1>
+                
+                <div class="flex items-center mb-4">
+                    <span class="text-lg md:text-xl font-medium mr-2">Followers:</span>
+                    <span class="text-lg md:text-xl font-bold counter" id="followerCounter">0</span>
+                </div>
+                
+                <div class="text-center text-gray-800 dark:text-gray-800 font-semibold max-w-md mb-6" id="bioText">
+                    <p class="mb-2">✨ Digital Creator & UGC Creator ✨</p>
+                    <p class="mb-2">🌍 Traveller | 🍲 Foodie Finds</p>
+                    <p class="mb-2">📔 My Lifestyle Diary</p>
+                    <p class="mb-2">🇮🇳 Roots | 🇦🇺 Adventures</p>
+                    <p>Bubble Ambassador <a href="https://www.instagram.com/bubble/" target="_blank" class="text-orange-600 hover:text-orange-800 underline">@bubble</a></p>
+                </div>
+                
+                <div class="flex space-x-4 mb-8">
+                    <div class="w-10 h-10 rounded-full bg-indigo-500 flex items-center justify-center text-white">
+                        <i class="fas fa-flag"></i>
+                    </div>
+                    <div class="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center text-white">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="w-10 h-10 rounded-full bg-pink-500 flex items-center justify-center text-white">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Social Links Section -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/vibewithanu05" 
+                   class="social-card instagram-bg text-white rounded-xl p-4 flex items-center justify-between ripple fade-in delay-1"
+                   target="_blank">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center mr-4">
+                            <i class="fab fa-instagram text-2xl text-pink-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">Instagram</h3>
+                            <p class="text-sm opacity-80">Follow for daily updates</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+                
+                <!-- YouTube -->
+                <a href="https://m.youtube.com/@vibewithanu05" 
+                   class="social-card youtube-bg text-white rounded-xl p-4 flex items-center justify-between ripple fade-in delay-2"
+                   target="_blank">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center mr-4">
+                            <i class="fab fa-youtube text-2xl text-red-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">YouTube</h3>
+                            <p class="text-sm opacity-80">Watch my videos</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+                
+                <!-- TikTok -->
+                <a href="https://www.tiktok.com/@vibewithanu05" 
+                   class="social-card tiktok-bg text-white rounded-xl p-4 flex items-center justify-between ripple fade-in delay-3"
+                   target="_blank">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-black flex items-center justify-center mr-4">
+                            <i class="fab fa-tiktok text-2xl text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">TikTok</h3>
+                            <p class="text-sm opacity-80">Check my trending content</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+                
+                <!-- Threads -->
+                <a href="https://www.threads.com/@vibewithanu05?xmt=AQF0h9RYetd_LFBywg1DB6Z7pYNZfAJc03XYwXlmTs6b8MU" 
+                   class="social-card threads-bg text-white rounded-xl p-4 flex items-center justify-between ripple fade-in delay-4"
+                   target="_blank">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center mr-4">
+                            <img src="images/thread logo.png" alt="Threads" class="w-8 h-8 object-contain">
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">Threads</h3>
+                            <p class="text-sm opacity-80">Join the conversation</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+                
+                <!-- Facebook -->
+                <a href="https://www.facebook.com/406495205890453?ref=_xav_ig_profile_page_web" 
+                   class="social-card facebook-bg text-white rounded-xl p-4 flex items-center justify-between ripple fade-in delay-5"
+                   target="_blank">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center mr-4">
+                            <i class="fab fa-facebook-f text-2xl text-blue-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">Facebook</h3>
+                            <p class="text-sm opacity-80">Travel and explore with Anu</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+                
+                <!-- Etsy Store -->
+                <a href="https://l.instagram.com/?u=https%3A%2F%2Fakstorebyanushree.etsy.com%2F%3Ffbclid%3DPAZXh0bgNhZW0CMTEAAafkGqw3EFuqUkcyeV0MfUHBH6QDI1Nc7iUMlY2P_Q8yvRMygzVpDrgYjnPogA_aem_1lJ-K-yJDbrJZmIz-oj1Sg&e=AT2yNtTIhwVlKwWc-61-PfSEF15V-vjNKgV7kJ5LXYBXdc-zD7VhebDdbeYJXcnwQxeYEDwwrbH4AnIA3tfqESPjXiftyxtAKyYvEvY" 
+                   class="social-card etsy-bg text-white rounded-xl p-4 flex items-center justify-between ripple fade-in delay-6"
+                   target="_blank">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center mr-4">
+                            <img src="images/Etsy_icon.svg" alt="Etsy" class="w-10 h-10 object-cover rounded-full">
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">Etsy Store</h3>
+                            <p class="text-sm opacity-80">Shop my collection</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+                
+                <!-- Linktree -->
+                <a href="https://l.instagram.com/?u=https%3A%2F%2Flinktr.ee%2Fvibewithanu05%3Ffbclid%3DPAZXh0bgNhZW0CMTEAAaftgkCj_dM8nLNy3CLr7lgIUEKaIwYPY8wfvMr-tpVYaXyMVAEDRHPoXghjBw_aem_J0TcQYdnfv8nCMt3jrEq2A&e=AT1Ca9csQ9IT-yNCxoix_CitTasv0HxfTndz52jkprVna69Hceg-B-7RgL0SpReReDBUYUHTDZYtNuPe51RCJVnGMKYOICxmkoZdHa4" 
+                   class="social-card linktree-bg text-white rounded-xl p-4 flex items-center justify-between ripple fade-in delay-7"
+                   target="_blank">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-black flex items-center justify-center mr-4">
+                            <img src="images/link tree icon.png" alt="Linktree" class="w-10 h-10 object-cover rounded-full">
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">Linktree</h3>
+                            <p class="text-sm opacity-80">All my links in one place</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+                
+                <!-- Social Cat -->
+                <a href="https://l.instagram.com/?u=https%3A%2F%2Fthesocialcat.com%2Fprofile%2Fvibewithanu05%3Ffbclid%3DPAZXh0bgNhZW0CMTEAAacSEQUM7ITTx7EwFoDebG4DDJIzZlExReS_Vqt0IfeiYW_MtRPGH_DDDsR2HQ_aem__HaS1WDFdadbZ6Vpxzw0zQ&e=AT2p1AJsVUuLQHEdln492NRBaE9QqY2KrgPb646piUlU7fJ18OcsJYbqVH-Mo3xfyEUv-dV-Y5QSqFHkd3LcPGU8ulxnp-Z-g-5sKrM" 
+                   class="social-card socialcat-bg text-white rounded-xl p-4 flex items-center justify-between ripple fade-in delay-8"
+                   target="_blank">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center mr-4">
+                            <img src="images/social cat icon.png" alt="Social Cat" class="w-8 h-8 object-contain">
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">Social Cat</h3>
+                            <p class="text-sm opacity-80">Creator profile</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+            
+            <!-- Gallery Section -->
+            <div class="mb-12 fade-in delay-5">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-3 bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">Featured Content</h2>
+                    <p class="text-gray-800 dark:text-gray-800">Discover my latest adventures and creative content</p>
+                </div>
+                <div class="carousel-container">
+                    <div class="carousel-particles"></div>
+                    <div class="carousel-track" id="carouselTrack">
+                        <div class="carousel-slide">
+                            <div class="gallery-item w-3/5 max-w-sm mx-auto bg-gradient-to-br from-orange-100 to-yellow-100 dark:from-orange-900 dark:to-yellow-900 relative group" style="aspect-ratio: 9/16; height: 100%;">
+                                <video class="w-full h-full object-cover" muted loop preload="metadata">
+                                    <source src="videos/video1.mp4" type="video/mp4">
+                                </video>
+                                <div class="gallery-floating-icon">
+                                    <i class="fas fa-play"></i>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div class="gallery-item w-3/5 max-w-sm mx-auto bg-gradient-to-br from-pink-100 to-rose-100 dark:from-pink-900 dark:to-rose-900 relative group" style="aspect-ratio: 9/16; height: 100%;">
+                                <video class="w-full h-full object-cover" muted loop preload="metadata">
+                                    <source src="videos/video2.mp4" type="video/mp4">
+                                </video>
+                                <div class="gallery-floating-icon">
+                                    <i class="fas fa-play"></i>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div class="gallery-item w-3/5 max-w-sm mx-auto bg-gradient-to-br from-green-100 to-emerald-100 dark:from-green-900 dark:to-emerald-900 relative group" style="aspect-ratio: 9/16; height: 100%;">
+                                <video class="w-full h-full object-cover" muted loop preload="metadata">
+                                    <source src="videos/video3.mp4" type="video/mp4">
+                                </video>
+                                <div class="gallery-floating-icon">
+                                    <i class="fas fa-play"></i>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div class="gallery-item w-3/5 max-w-sm mx-auto bg-gradient-to-br from-yellow-100 to-amber-100 dark:from-yellow-900 dark:to-amber-900 relative group" style="aspect-ratio: 9/16; height: 100%;">
+                                <video class="w-full h-full object-cover" muted loop preload="metadata">
+                                    <source src="videos/video4.mp4" type="video/mp4">
+                                </video>
+                                <div class="gallery-floating-icon">
+                                    <i class="fas fa-play"></i>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div class="gallery-item w-3/5 max-w-sm mx-auto bg-gradient-to-br from-red-100 to-orange-100 dark:from-red-900 dark:to-orange-900 relative group" style="aspect-ratio: 9/16; height: 100%;">
+                                <video class="w-full h-full object-cover" muted loop preload="metadata">
+                                    <source src="videos/video5.mp4" type="video/mp4">
+                                </video>
+                                <div class="gallery-floating-icon">
+                                    <i class="fas fa-play"></i>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    <!-- Navigation Buttons -->
+                    <button class="carousel-nav prev" id="prevBtn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-nav next" id="nextBtn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    
+                    <!-- Progress Indicator -->
+                    <div class="carousel-progress">
+                        <div class="carousel-progress-bar" id="carouselProgress"></div>
+                    </div>
+                    
+
+                </div>
+            </div>
+            
+            <!-- Call to Action -->
+            <div class="bg-gradient-to-r from-purple-600 via-pink-500 to-teal-400 text-white rounded-xl p-6 text-center fade-in delay-5 shadow-2xl">
+                <h2 class="text-xl md:text-2xl font-bold mb-3">Join My Lifestyle Journey</h2>
+                <p class="mb-4">Follow for daily updates on travel, food, and lifestyle content</p>
+                <div class="flex justify-center space-x-4">
+                    <a href="https://www.instagram.com/vibewithanu05" 
+                       class="bg-white text-purple-600 px-6 py-2 rounded-full font-medium ripple hover:bg-gray-100 transition transform hover:scale-105"
+                       target="_blank">
+                        Follow Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <div class="text-center py-6 text-gray-500 dark:text-gray-400 text-sm">
+        <p>© 2025 @vibewithanu05 | Lifestyle Content Creator</p>
+    </div>
+
+    <script>
+        // Typing Animation
+        const text = "Anushree Kane";
+        const typingText = document.getElementById('typingText');
+        let i = 0;
+        
+        function typeWriter() {
+            if (i < text.length) {
+                typingText.innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            } else {
+                typingText.classList.remove('typing-text');
+            }
+        }
+        
+        // Follower Counter Animation
+        const followerCounter = document.getElementById('followerCounter');
+        const targetFollowers = 2700;
+        let currentFollowers = 0;
+        const duration = 2000; // 2 seconds
+        const increment = targetFollowers / (duration / 16);
+        
+        function animateCounter() {
+            if (currentFollowers < targetFollowers) {
+                currentFollowers += increment;
+                followerCounter.textContent = Math.floor(currentFollowers);
+                requestAnimationFrame(animateCounter);
+            } else {
+                followerCounter.textContent = "2.7k";
+            }
+        }
+        
+
+        
+        
+
+        
+        // Ripple Effect
+        const rippleButtons = document.querySelectorAll('.ripple');
+        rippleButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const ripple = document.createElement('span');
+                ripple.className = 'ripple-effect';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                    if (this.tagName === 'A') {
+                        window.location.href = this.href;
+                    }
+                }, 600);
+            });
+        });
+        
+        // Scroll Progress Indicator
+        function updateScrollProgress() {
+            const scrollProgress = document.getElementById('scrollProgress');
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercentage = (scrollTop / scrollHeight) * 100;
+            
+            scrollProgress.style.transform = `scaleX(${scrollPercentage / 100})`;
+        }
+        
+        // Parallax Effect for Background Elements
+        function handleParallax() {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.blob');
+            
+            parallaxElements.forEach((element, index) => {
+                const speed = 0.5 + (index * 0.1);
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        }
+        
+        // Mouse Movement Parallax
+        function handleMouseParallax(e) {
+            const shapes = document.querySelectorAll('.shape');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            shapes.forEach((shape, index) => {
+                const speed = (index + 1) * 10;
+                const xPos = (x - 0.5) * speed;
+                const yPos = (y - 0.5) * speed;
+                
+                shape.style.transform += ` translate(${xPos}px, ${yPos}px)`;
+            });
+        }
+        
+        // Add CSS for slide ripple animation
+        const slideRippleStyle = document.createElement('style');
+        slideRippleStyle.textContent = `
+            @keyframes slideRipple {
+                0% {
+                    transform: translate(-50%, -50%) scale(0);
+                    opacity: 1;
+                }
+                100% {
+                    transform: translate(-50%, -50%) scale(20);
+                    opacity: 0;
+                }
+            }
+            
+            .gallery-item {
+                transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                border-radius: 1.5rem;
+                overflow: hidden;
+                position: relative;
+                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            }
+            
+
+            
+            .gallery-item:hover {
+                transform: scale(1.05);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            }
+            
+            .gallery-floating-icon {
+                display: none;
+            }
+            
+            @keyframes iconFloat {
+                0%, 100% { transform: translateY(-10px) scale(1); }
+                50% { transform: translateY(-15px) scale(1.1); }
+            }
+            
+            .gallery-item:hover .gallery-floating-icon {
+                opacity: 1;
+                transform: translateY(0) rotate(360deg) scale(1.2);
+                animation: none;
+            }
+        `;
+        document.head.appendChild(slideRippleStyle);
+         
+         // Create carousel particles
+         function createCarouselParticles() {
+             const particlesContainer = document.querySelector('.carousel-particles');
+             if (!particlesContainer) return;
+             
+             for (let i = 0; i < 15; i++) {
+                 const particle = document.createElement('div');
+                 particle.className = 'carousel-particle';
+                 particle.style.cssText = `
+                     position: absolute;
+                     width: ${Math.random() * 6 + 2}px;
+                     height: ${Math.random() * 6 + 2}px;
+                     background: linear-gradient(45deg, rgba(255, 140, 66, 0.6), rgba(255, 171, 0, 0.6));
+                     border-radius: 50%;
+                     left: ${Math.random() * 100}%;
+                     top: ${Math.random() * 100}%;
+                     animation: particleFloat ${Math.random() * 3 + 2}s ease-in-out infinite;
+                     animation-delay: ${Math.random() * 2}s;
+                     pointer-events: none;
+                 `;
+                 particlesContainer.appendChild(particle);
+             }
+         }
+         
+         // Add particle animation styles
+         const particleStyle = document.createElement('style');
+         particleStyle.textContent = `
+             .carousel-particles {
+                 position: absolute;
+                 top: 0;
+                 left: 0;
+                 right: 0;
+                 bottom: 0;
+                 pointer-events: none;
+                 z-index: 1;
+             }
+             
+             @keyframes particleFloat {
+                 0%, 100% {
+                     transform: translateY(0) rotate(0deg);
+                     opacity: 0.3;
+                 }
+                 50% {
+                     transform: translateY(-20px) rotate(180deg);
+                     opacity: 0.8;
+                 }
+             }
+             
+             .carousel-progress {
+                 position: absolute;
+                 bottom: 20px;
+                 left: 50%;
+                 transform: translateX(-50%);
+                 width: 200px;
+                 height: 4px;
+                 background: rgba(255, 255, 255, 0.2);
+                 border-radius: 2px;
+                 overflow: hidden;
+             }
+             
+             .carousel-progress-bar {
+                 height: 100%;
+                 background: linear-gradient(90deg, rgba(255, 140, 66, 1), rgba(255, 171, 0, 1));
+                 border-radius: 2px;
+                 transition: width 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                 box-shadow: 0 0 10px rgba(255, 140, 66, 0.5);
+             }
+         `;
+         document.head.appendChild(particleStyle);
+         
+         // Initialize particles
+         setTimeout(createCarouselParticles, 100);
+         
+         // Add magnetic effect to navigation buttons
+         function addMagneticEffect() {
+             const navButtons = document.querySelectorAll('.carousel-nav');
+             
+             navButtons.forEach(button => {
+                 button.addEventListener('mousemove', (e) => {
+                     const rect = button.getBoundingClientRect();
+                     const x = e.clientX - rect.left - rect.width / 2;
+                     const y = e.clientY - rect.top - rect.height / 2;
+                     
+                     button.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px) scale(1.1)`;
+                 });
+                 
+                 button.addEventListener('mouseleave', () => {
+                     button.style.transform = 'translate(0, 0) scale(1)';
+                 });
+             });
+         }
+         
+         // Initialize magnetic effect
+         setTimeout(addMagneticEffect, 100);
+        
+        // Enhanced Ripple Effect with Color
+        function createColorfulRipple(e, element) {
+            const rect = element.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const ripple = document.createElement('div');
+            ripple.style.position = 'absolute';
+            ripple.style.borderRadius = '50%';
+            ripple.style.background = 'rgba(255, 255, 255, 0.6)';
+            ripple.style.transform = 'scale(0)';
+            ripple.style.animation = 'rippleAnimation 0.6s linear';
+            ripple.style.left = (x - 10) + 'px';
+            ripple.style.top = (y - 10) + 'px';
+            ripple.style.width = '20px';
+            ripple.style.height = '20px';
+            ripple.style.pointerEvents = 'none';
+            
+            element.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        }
+        
+        // Carousel functionality
+        let currentSlide = 0;
+        const carouselTrack = document.getElementById('carouselTrack');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const totalSlides = 5;
+        let autoPlayInterval;
+        
+        function updateCarousel() {
+            const translateX = -(currentSlide * 100);
+            carouselTrack.style.transform = `translateX(${translateX}%)`;
+            
+            // Update progress bar
+            const progressBar = document.getElementById('carouselProgress');
+            if (progressBar) {
+                const progress = ((currentSlide + 1) / totalSlides) * 100;
+                progressBar.style.width = `${progress}%`;
+            }
+            
+            // Add 3D effects to slides
+            const slides = document.querySelectorAll('.carousel-slide');
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active', 'prev', 'next');
+                
+                if (index === currentSlide) {
+                    slide.classList.add('active');
+                    // Add pulse effect to active video
+                    const video = slide.querySelector('video');
+                    if (video) {
+                        video.style.transform = 'scale(1.02)';
+                        setTimeout(() => {
+                            video.style.transform = 'scale(1)';
+                        }, 300);
+                    }
+                } else if (index === currentSlide - 1 || (currentSlide === 0 && index === totalSlides - 1)) {
+                    slide.classList.add('prev');
+                } else if (index === currentSlide + 1 || (currentSlide === totalSlides - 1 && index === 0)) {
+                    slide.classList.add('next');
+                }
+            });
+            
+            // Add ripple effect to active slide
+            const activeSlide = slides[currentSlide];
+            if (activeSlide) {
+                createSlideRipple(activeSlide);
+            }
+        }
+        
+        function createSlideRipple(slide) {
+            const ripple = document.createElement('div');
+            ripple.style.cssText = `
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 20px;
+                height: 20px;
+                background: radial-gradient(circle, rgba(255, 140, 66, 0.3) 0%, transparent 70%);
+                border-radius: 50%;
+                transform: translate(-50%, -50%) scale(0);
+                animation: slideRipple 1.5s ease-out;
+                pointer-events: none;
+                z-index: 1;
+            `;
+            
+            slide.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 1500);
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }
+        
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+        
+        function goToSlide(slideIndex) {
+            currentSlide = slideIndex;
+            updateCarousel();
+        }
+        
+        function startAutoPlay() {
+            // Auto-play disabled
+        }
+        
+        function stopAutoPlay() {
+            // Auto-play disabled
+        }
+        
+        // Event listeners
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+        
+        // Video hover and click functionality
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        
+        galleryItems.forEach(item => {
+            const video = item.querySelector('video');
+            if (video) {
+                // Hover functionality for preview
+                item.addEventListener('mouseenter', () => {
+                    video.play();
+                });
+                
+                item.addEventListener('mouseleave', () => {
+                    video.pause();
+                    video.currentTime = 0;
+                });
+                
+                // Click functionality for fullscreen with sound
+                item.addEventListener('click', () => {
+                    // Create a modal overlay
+                    const modal = document.createElement('div');
+                    modal.className = 'video-modal';
+                    modal.innerHTML = `
+                        <div class="video-modal-content">
+                            <button class="video-modal-close">&times;</button>
+                            <video controls autoplay class="video-modal-video">
+                                <source src="${video.querySelector('source').src}" type="video/mp4">
+                            </video>
+                        </div>
+                    `;
+                    
+                    document.body.appendChild(modal);
+                    
+                    // Close modal functionality
+                    const closeBtn = modal.querySelector('.video-modal-close');
+                    const modalVideo = modal.querySelector('.video-modal-video');
+                    
+                    const closeModal = () => {
+                        modalVideo.pause();
+                        document.body.removeChild(modal);
+                    };
+                    
+                    closeBtn.addEventListener('click', closeModal);
+                    modal.addEventListener('click', (e) => {
+                        if (e.target === modal) {
+                            closeModal();
+                        }
+                    });
+                    
+                    // ESC key to close
+                    const handleEsc = (e) => {
+                        if (e.key === 'Escape') {
+                            closeModal();
+                            document.removeEventListener('keydown', handleEsc);
+                        }
+                    };
+                    document.addEventListener('keydown', handleEsc);
+                });
+            }
+        });
+        
+        // Touch/swipe support for mobile
+        let startX = 0;
+        let isDragging = false;
+        
+        const carouselContainer = document.querySelector('.carousel-container');
+        carouselContainer.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+        });
+        
+        carouselContainer.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+        });
+        
+        carouselContainer.addEventListener('touchend', (e) => {
+            if (!isDragging) return;
+            isDragging = false;
+            
+            const endX = e.changedTouches[0].clientX;
+            const diffX = startX - endX;
+            
+            if (Math.abs(diffX) > 50) {
+                if (diffX > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+            }
+            
+            // Touch swipe completed
+        });
+        
+        // Update carousel on window resize
+        window.addEventListener('resize', updateCarousel);
+        
+        // Initialize animations
+        window.addEventListener('load', () => {
+            typeWriter();
+            animateCounter();
+            
+            // Carousel initialized without auto-play
+            
+            // Animate elements on scroll
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const fadeInObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeElements.forEach(el => {
+                fadeInObserver.observe(el);
+            });
+            
+            // Add scroll event listeners
+            window.addEventListener('scroll', () => {
+                updateScrollProgress();
+                handleParallax();
+            });
+            
+            // Add mouse movement listener
+            document.addEventListener('mousemove', handleMouseParallax);
+            
+            // Enhanced ripple effects
+            const socialCards = document.querySelectorAll('.social-card');
+            socialCards.forEach(card => {
+                card.addEventListener('click', (e) => {
+                    createColorfulRipple(e, card);
+                });
+            });
+        });
+        
+        // Add CSS for ripple animation and video modal
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes rippleAnimation {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+            
+            .video-modal {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.9);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 1000;
+                backdrop-filter: blur(5px);
+            }
+            
+            .video-modal-content {
+                position: relative;
+                max-width: 90vw;
+                max-height: 90vh;
+                background: #000;
+                border-radius: 12px;
+                overflow: hidden;
+                box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            }
+            
+            .video-modal-video {
+                width: 100%;
+                height: auto;
+                max-height: 90vh;
+                display: block;
+            }
+            
+            .video-modal-close {
+                position: absolute;
+                top: 15px;
+                right: 20px;
+                background: rgba(255, 255, 255, 0.9);
+                border: none;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                font-size: 24px;
+                font-weight: bold;
+                cursor: pointer;
+                z-index: 1001;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s ease;
+                color: #333;
+            }
+            
+            .video-modal-close:hover {
+                background: rgba(255, 255, 255, 1);
+                transform: scale(1.1);
+            }
+            
+            @media (max-width: 768px) {
+                .video-modal-content {
+                    max-width: 95vw;
+                    max-height: 85vh;
+                }
+                
+                .video-modal-close {
+                    top: 10px;
+                    right: 15px;
+                    width: 35px;
+                    height: 35px;
+                    font-size: 20px;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
