@@ -426,79 +426,10 @@
                 padding: 0.5rem;
             }
             
-            .carousel-nav.prev {
-                left: 5px;
-            }
-            
-            .carousel-nav.next {
-                right: 5px;
-            }
-            
-            .carousel-nav {
-                width: 50px;
-                height: 50px;
-            }
-            
-            .carousel-nav i {
-                font-size: 16px;
-            }
+            /* Removed old carousel nav mobile styles */
         }
         
-        .carousel-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: linear-gradient(135deg, rgba(255, 140, 66, 0.9), rgba(255, 171, 0, 0.9));
-            border: none;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            z-index: 10;
-            backdrop-filter: blur(15px);
-            box-shadow: 0 10px 30px rgba(255, 140, 66, 0.3);
-            animation: navFloat 3s ease-in-out infinite;
-        }
-        
-        @keyframes navFloat {
-            0%, 100% { transform: translateY(-50%) translateX(0); }
-            50% { transform: translateY(-50%) translateX(5px); }
-        }
-        
-        .carousel-nav:hover {
-            background: linear-gradient(135deg, rgba(255, 140, 66, 1), rgba(255, 171, 0, 1));
-            transform: translateY(-50%) scale(1.15) rotate(10deg);
-            box-shadow: 0 15px 40px rgba(255, 140, 66, 0.5);
-            animation: none;
-        }
-        
-        .carousel-nav:active {
-            transform: translateY(-50%) scale(0.95);
-        }
-        
-        .carousel-nav.prev {
-            left: 20px;
-            animation-delay: 0.5s;
-        }
-        
-        .carousel-nav.next {
-            right: 20px;
-            animation-delay: 1s;
-        }
-        
-        .carousel-nav i {
-            color: white;
-            font-size: 18px;
-            transition: all 0.3s ease;
-        }
-        
-        .carousel-nav:hover i {
-            transform: scale(1.2);
-        }
+        /* Removed old carousel navigation button styles */
         
 
         
@@ -900,6 +831,38 @@
             75% { transform: translateY(-15px) rotate(270deg); }
             100% { transform: translateY(0) rotate(360deg); }
         }
+        
+        /* Phone mockup hover effects */
+        .phone-mockup:hover {
+            transform: perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1.02) !important;
+            box-shadow: 0 35px 70px rgba(0,0,0,0.3) !important;
+        }
+        
+        /* Video overlay hover */
+        .video-card:hover .video-overlay {
+            opacity: 1 !important;
+        }
+        
+        /* Ensure videos have higher z-index for clickability */
+        .video-card {
+            position: relative;
+            z-index: 5;
+        }
+        
+        /* Responsive phone mockup sizes */
+        @media (min-width: 1024px) {
+            .phone-mockup {
+                width: 280px !important;
+                height: 560px !important;
+            }
+        }
+        
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .phone-mockup {
+                width: 240px !important;
+                height: 480px !important;
+            }
+        }
     </style>
 </head>
 <body class="relative">
@@ -1125,8 +1088,8 @@
             </div>
             
             <!-- Gallery Section -->
-            <div class="mb-12 fade-in delay-5">
-                <div class="text-center mb-10">
+            <div class="mb-6 fade-in delay-5">
+                <div class="text-center mb-6">
                     <h2 class="text-3xl md:text-4xl font-bold mb-3 bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">Featured Content</h2>
                     <p class="text-gray-800 dark:text-gray-800">Discover my latest adventures and creative content</p>
                 </div>
@@ -1134,74 +1097,111 @@
                     <div class="carousel-particles"></div>
                     <div class="carousel-track" id="carouselTrack">
                         <div class="carousel-slide">
-                            <div class="gallery-item w-3/5 max-w-sm mx-auto bg-gradient-to-br from-orange-100 to-yellow-100 dark:from-orange-900 dark:to-yellow-900 relative group" style="aspect-ratio: 9/16; height: 100%;">
-                                <video class="w-full h-full object-cover" muted loop preload="metadata">
-                                    <source src="videos/video1.mp4" type="video/mp4">
-                                </video>
-                                <div class="gallery-floating-icon">
-                                    <i class="fas fa-play"></i>
+                            <div class="w-56 sm:w-72 flex-shrink-0 video-card mx-auto">
+                                <div class="phone-mockup mx-auto" style="width: 200px; height: 400px; position: relative; border-radius: 35px; background: linear-gradient(145deg, #2c2c2c, #1a1a1a); padding: 10px; box-shadow: 0 20px 40px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.05), inset 0 1px 0 rgba(255,255,255,0.1); transform: perspective(1000px) rotateY(-5deg) rotateX(5deg); transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);">
+                                    <div class="phone-screen" style="width: 100%; height: 100%; border-radius: 28px; overflow: hidden; background: #000; position: relative;">
+                                        <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                                            <source src="videos/video1.mp4" type="video/mp4">
+                                        </video>
+                                        <div class="video-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: all 0.3s ease;">
+                                            <div class="bg-white bg-opacity-90 rounded-full p-3 backdrop-blur-sm">
+                                                <i class="fas fa-volume-up text-soft-pink text-xl"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%); width: 50px; height: 5px; background: #333; border-radius: 3px; z-index: 10;"></div>
+                                    <div style="position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); width: 35px; height: 3px; background: #333; border-radius: 2px; z-index: 10;"></div>
                                 </div>
-
                             </div>
                         </div>
                         <div class="carousel-slide">
-                            <div class="gallery-item w-3/5 max-w-sm mx-auto bg-gradient-to-br from-pink-100 to-rose-100 dark:from-pink-900 dark:to-rose-900 relative group" style="aspect-ratio: 9/16; height: 100%;">
-                                <video class="w-full h-full object-cover" muted loop preload="metadata">
-                                    <source src="videos/video2.mp4" type="video/mp4">
-                                </video>
-                                <div class="gallery-floating-icon">
-                                    <i class="fas fa-play"></i>
+                            <div class="w-56 sm:w-72 flex-shrink-0 video-card mx-auto">
+                                <div class="phone-mockup mx-auto" style="width: 200px; height: 400px; position: relative; border-radius: 35px; background: linear-gradient(145deg, #2c2c2c, #1a1a1a); padding: 10px; box-shadow: 0 20px 40px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.05), inset 0 1px 0 rgba(255,255,255,0.1); transform: perspective(1000px) rotateY(-5deg) rotateX(5deg); transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);">
+                                    <div class="phone-screen" style="width: 100%; height: 100%; border-radius: 28px; overflow: hidden; background: #000; position: relative;">
+                                        <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                                            <source src="videos/video2.mp4" type="video/mp4">
+                                        </video>
+                                        <div class="video-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: all 0.3s ease;">
+                                            <div class="bg-white bg-opacity-90 rounded-full p-3 backdrop-blur-sm">
+                                                <i class="fas fa-volume-up text-soft-pink text-xl"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%); width: 50px; height: 5px; background: #333; border-radius: 3px; z-index: 10;"></div>
+                                    <div style="position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); width: 35px; height: 3px; background: #333; border-radius: 2px; z-index: 10;"></div>
                                 </div>
-
                             </div>
                         </div>
                         <div class="carousel-slide">
-                            <div class="gallery-item w-3/5 max-w-sm mx-auto bg-gradient-to-br from-green-100 to-emerald-100 dark:from-green-900 dark:to-emerald-900 relative group" style="aspect-ratio: 9/16; height: 100%;">
-                                <video class="w-full h-full object-cover" muted loop preload="metadata">
-                                    <source src="videos/video3.mp4" type="video/mp4">
-                                </video>
-                                <div class="gallery-floating-icon">
-                                    <i class="fas fa-play"></i>
+                            <div class="w-56 sm:w-72 flex-shrink-0 video-card mx-auto">
+                                <div class="phone-mockup mx-auto" style="width: 200px; height: 400px; position: relative; border-radius: 35px; background: linear-gradient(145deg, #2c2c2c, #1a1a1a); padding: 10px; box-shadow: 0 20px 40px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.05), inset 0 1px 0 rgba(255,255,255,0.1); transform: perspective(1000px) rotateY(-5deg) rotateX(5deg); transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);">
+                                    <div class="phone-screen" style="width: 100%; height: 100%; border-radius: 28px; overflow: hidden; background: #000; position: relative;">
+                                        <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                                            <source src="videos/video3.mp4" type="video/mp4">
+                                        </video>
+                                        <div class="video-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: all 0.3s ease;">
+                                            <div class="bg-white bg-opacity-90 rounded-full p-3 backdrop-blur-sm">
+                                                <i class="fas fa-volume-up text-soft-pink text-xl"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%); width: 50px; height: 5px; background: #333; border-radius: 3px; z-index: 10;"></div>
+                                    <div style="position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); width: 35px; height: 3px; background: #333; border-radius: 2px; z-index: 10;"></div>
                                 </div>
-
                             </div>
                         </div>
                         <div class="carousel-slide">
-                            <div class="gallery-item w-3/5 max-w-sm mx-auto bg-gradient-to-br from-yellow-100 to-amber-100 dark:from-yellow-900 dark:to-amber-900 relative group" style="aspect-ratio: 9/16; height: 100%;">
-                                <video class="w-full h-full object-cover" muted loop preload="metadata">
-                                    <source src="videos/video4.mp4" type="video/mp4">
-                                </video>
-                                <div class="gallery-floating-icon">
-                                    <i class="fas fa-play"></i>
+                            <div class="w-56 sm:w-72 flex-shrink-0 video-card mx-auto">
+                                <div class="phone-mockup mx-auto" style="width: 200px; height: 400px; position: relative; border-radius: 35px; background: linear-gradient(145deg, #2c2c2c, #1a1a1a); padding: 10px; box-shadow: 0 20px 40px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.05), inset 0 1px 0 rgba(255,255,255,0.1); transform: perspective(1000px) rotateY(-5deg) rotateX(5deg); transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);">
+                                    <div class="phone-screen" style="width: 100%; height: 100%; border-radius: 28px; overflow: hidden; background: #000; position: relative;">
+                                        <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                                            <source src="videos/video4.mp4" type="video/mp4">
+                                        </video>
+                                        <div class="video-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: all 0.3s ease;">
+                                            <div class="bg-white bg-opacity-90 rounded-full p-3 backdrop-blur-sm">
+                                                <i class="fas fa-volume-up text-soft-pink text-xl"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%); width: 50px; height: 5px; background: #333; border-radius: 3px; z-index: 10;"></div>
+                                    <div style="position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); width: 35px; height: 3px; background: #333; border-radius: 2px; z-index: 10;"></div>
                                 </div>
-
                             </div>
                         </div>
                         <div class="carousel-slide">
-                            <div class="gallery-item w-3/5 max-w-sm mx-auto bg-gradient-to-br from-red-100 to-orange-100 dark:from-red-900 dark:to-orange-900 relative group" style="aspect-ratio: 9/16; height: 100%;">
-                                <video class="w-full h-full object-cover" muted loop preload="metadata">
-                                    <source src="videos/video5.mp4" type="video/mp4">
-                                </video>
-                                <div class="gallery-floating-icon">
-                                    <i class="fas fa-play"></i>
+                            <div class="w-56 sm:w-72 flex-shrink-0 video-card mx-auto">
+                                <div class="phone-mockup mx-auto" style="width: 200px; height: 400px; position: relative; border-radius: 35px; background: linear-gradient(145deg, #2c2c2c, #1a1a1a); padding: 10px; box-shadow: 0 20px 40px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.05), inset 0 1px 0 rgba(255,255,255,0.1); transform: perspective(1000px) rotateY(-5deg) rotateX(5deg); transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);">
+                                    <div class="phone-screen" style="width: 100%; height: 100%; border-radius: 28px; overflow: hidden; background: #000; position: relative;">
+                                        <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                                            <source src="videos/video5.mp4" type="video/mp4">
+                                        </video>
+                                        <div class="video-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: all 0.3s ease;">
+                                            <div class="bg-white bg-opacity-90 rounded-full p-3 backdrop-blur-sm">
+                                                <i class="fas fa-volume-up text-soft-pink text-xl"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%); width: 50px; height: 5px; background: #333; border-radius: 3px; z-index: 10;"></div>
+                                    <div style="position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); width: 35px; height: 3px; background: #333; border-radius: 2px; z-index: 10;"></div>
                                 </div>
-
                             </div>
                         </div>
 
                     </div>
                     
-                    <!-- Navigation Buttons -->
-                    <button class="carousel-nav prev" id="prevBtn">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="carousel-nav next" id="nextBtn">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                    
                     <!-- Progress Indicator -->
                     <div class="carousel-progress">
                         <div class="carousel-progress-bar" id="carouselProgress"></div>
+                    </div>
+                    
+                    <!-- Navigation Buttons Below Carousel -->
+                    <div class="flex justify-center space-x-4 mt-6">
+                        <button id="prevBtn" class="bg-gradient-to-r from-orange-500 to-yellow-500 text-white px-6 py-3 rounded-full font-medium hover:from-orange-600 hover:to-yellow-600 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                            <i class="fas fa-chevron-left mr-2"></i>Previous
+                        </button>
+                        <button id="nextBtn" class="bg-gradient-to-r from-orange-500 to-yellow-500 text-white px-6 py-3 rounded-full font-medium hover:from-orange-600 hover:to-yellow-600 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                            Next<i class="fas fa-chevron-right ml-2"></i>
+                        </button>
                     </div>
                     
 
@@ -1343,10 +1343,78 @@
             
             .gallery-item {
                 transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-                border-radius: 1.5rem;
+                border-radius: 3rem;
                 overflow: hidden;
                 position: relative;
-                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+                box-shadow: 
+                    0 25px 50px rgba(0, 0, 0, 0.4),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                    0 0 0 1px rgba(255, 255, 255, 0.05);
+                border: 12px solid #0a0a0a;
+                background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+                padding: 8px;
+            }
+            
+            .gallery-item::before {
+                content: '';
+                position: absolute;
+                top: 15px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 80px;
+                height: 8px;
+                background: linear-gradient(90deg, #333, #555, #333);
+                border-radius: 4px;
+                z-index: 10;
+                box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
+            }
+            
+            .gallery-item::after {
+                content: '';
+                position: absolute;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 50px;
+                height: 50px;
+                background: radial-gradient(circle, #2a2a2a, #1a1a1a);
+                border: 3px solid #333;
+                border-radius: 50%;
+                z-index: 10;
+                box-shadow: 
+                    inset 0 2px 4px rgba(0, 0, 0, 0.3),
+                    0 1px 2px rgba(255, 255, 255, 0.1);
+            }
+            
+            .gallery-item video {
+                border-radius: 2.5rem;
+                margin: 8px;
+                width: calc(100% - 16px);
+                height: calc(100% - 16px);
+                position: relative;
+                z-index: 1;
+            }
+            
+            .phone-container {
+                position: relative;
+            }
+            
+            .phone-container::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(
+                    135deg,
+                    rgba(255, 255, 255, 0.1) 0%,
+                    transparent 50%,
+                    rgba(0, 0, 0, 0.1) 100%
+                );
+                border-radius: 3rem;
+                z-index: 5;
+                pointer-events: none;
             }
             
 
@@ -1496,8 +1564,6 @@
         // Carousel functionality
         let currentSlide = 0;
         const carouselTrack = document.getElementById('carouselTrack');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
         const totalSlides = 5;
         let autoPlayInterval;
         
@@ -1587,102 +1653,123 @@
             // Auto-play disabled
         }
         
-        // Event listeners
-        nextBtn.addEventListener('click', nextSlide);
-        prevBtn.addEventListener('click', prevSlide);
+        // Event listeners for navigation buttons
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        
+        if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+        if (nextBtn) nextBtn.addEventListener('click', nextSlide);
         
         // Video hover and click functionality
-        const galleryItems = document.querySelectorAll('.gallery-item');
-        
-        galleryItems.forEach(item => {
-            const video = item.querySelector('video');
-            if (video) {
-                // Hover functionality for preview
-                item.addEventListener('mouseenter', () => {
-                    video.play();
-                });
-                
-                item.addEventListener('mouseleave', () => {
-                    video.pause();
-                    video.currentTime = 0;
-                });
-                
-                // Click functionality for fullscreen with sound
-                item.addEventListener('click', () => {
-                    // Create a modal overlay
-                    const modal = document.createElement('div');
-                    modal.className = 'video-modal';
-                    modal.innerHTML = `
-                        <div class="video-modal-content">
-                            <button class="video-modal-close">&times;</button>
-                            <video controls autoplay class="video-modal-video">
-                                <source src="${video.querySelector('source').src}" type="video/mp4">
-                            </video>
-                        </div>
-                    `;
+        function initializeVideoEvents() {
+            const videoCards = document.querySelectorAll('.video-card');
+            console.log('Found video cards:', videoCards.length);
+            
+            videoCards.forEach((card, index) => {
+                const video = card.querySelector('video');
+                if (video) {
+                    console.log(`Initializing video ${index + 1}:`, video.src);
                     
-                    document.body.appendChild(modal);
+                    // Hover functionality removed - videos only play when clicked
                     
-                    // Close modal functionality
-                    const closeBtn = modal.querySelector('.video-modal-close');
-                    const modalVideo = modal.querySelector('.video-modal-video');
-                    
-                    const closeModal = () => {
-                        modalVideo.pause();
-                        document.body.removeChild(modal);
+                    // Function to create and show video modal
+                    const showVideoModal = (e) => {
+                        console.log('Video modal triggered!');
+                        e.stopPropagation(); // Prevent carousel navigation
+                        e.preventDefault(); // Prevent any default behavior
+                        
+                        // Get video source - try multiple methods
+                        let videoSrc = '';
+                        const sourceElement = video.querySelector('source');
+                        if (sourceElement) {
+                            videoSrc = sourceElement.src;
+                        } else {
+                            videoSrc = video.src;
+                        }
+                        
+                        // If still no source, try getting from currentSrc
+                        if (!videoSrc) {
+                            videoSrc = video.currentSrc;
+                        }
+                        
+                        console.log('Video source:', videoSrc);
+                        
+                        // Create a modal overlay
+                        const modal = document.createElement('div');
+                        modal.className = 'video-modal';
+                        modal.innerHTML = `
+                            <div class="video-modal-content">
+                                <button class="video-modal-close">&times;</button>
+                                <video controls autoplay class="video-modal-video">
+                                    <source src="${videoSrc}" type="video/mp4">
+                                </video>
+                            </div>
+                        `;
+                        
+                        document.body.appendChild(modal);
+                        console.log('Modal added to body');
+                        
+                        // Close modal functionality
+                        const closeBtn = modal.querySelector('.video-modal-close');
+                        const modalVideo = modal.querySelector('.video-modal-video');
+                        
+                        const closeModal = () => {
+                            modalVideo.pause();
+                            document.body.removeChild(modal);
+                            console.log('Modal closed');
+                        };
+                        
+                        closeBtn.addEventListener('click', closeModal);
+                        modal.addEventListener('click', (e) => {
+                            if (e.target === modal) {
+                                closeModal();
+                            }
+                        });
+                        
+                        // ESC key to close
+                        const handleEsc = (e) => {
+                            if (e.key === 'Escape') {
+                                closeModal();
+                                document.removeEventListener('keydown', handleEsc);
+                            }
+                        };
+                        document.addEventListener('keydown', handleEsc);
                     };
                     
-                    closeBtn.addEventListener('click', closeModal);
-                    modal.addEventListener('click', (e) => {
-                        if (e.target === modal) {
-                            closeModal();
-                        }
-                    });
+                    // Add click listener to video
+                    video.addEventListener('click', showVideoModal);
                     
-                    // ESC key to close
-                    const handleEsc = (e) => {
-                        if (e.key === 'Escape') {
-                            closeModal();
-                            document.removeEventListener('keydown', handleEsc);
-                        }
-                    };
-                    document.addEventListener('keydown', handleEsc);
-                });
-            }
-        });
-        
-        // Touch/swipe support for mobile
-        let startX = 0;
-        let isDragging = false;
-        
-        const carouselContainer = document.querySelector('.carousel-container');
-        carouselContainer.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX;
-            isDragging = true;
-        });
-        
-        carouselContainer.addEventListener('touchmove', (e) => {
-            if (!isDragging) return;
-            e.preventDefault();
-        });
-        
-        carouselContainer.addEventListener('touchend', (e) => {
-            if (!isDragging) return;
-            isDragging = false;
-            
-            const endX = e.changedTouches[0].clientX;
-            const diffX = startX - endX;
-            
-            if (Math.abs(diffX) > 50) {
-                if (diffX > 0) {
-                    nextSlide();
-                } else {
-                    prevSlide();
+                    // Add click listener to video overlay (the volume icon area)
+                    const videoOverlay = card.querySelector('.video-overlay');
+                    if (videoOverlay) {
+                        videoOverlay.addEventListener('click', showVideoModal);
+                        console.log('Added click listener to video overlay');
+                    }
+                        
+
+                    
+                    // Also add click listener to the phone screen area as fallback
+                    const phoneScreen = card.querySelector('.phone-screen');
+                    if (phoneScreen) {
+                        phoneScreen.addEventListener('click', (e) => {
+                            console.log('Phone screen clicked! Target:', e.target.tagName);
+                            showVideoModal(e);
+                        });
+                        console.log('Added click listener to phone screen');
+                    }
                 }
-            }
-            
-            // Touch swipe completed
-        });
+            });
+        }
+        
+        // Initialize video events after DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeVideoEvents);
+        } else {
+            initializeVideoEvents();
+        }
+        
+        // Removed touch/swipe and mouse drag functionality
+        // Navigation is now handled exclusively by the Previous/Next buttons below the carousel
         
         // Update carousel on window resize
         window.addEventListener('resize', updateCarousel);
